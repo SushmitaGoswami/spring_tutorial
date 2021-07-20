@@ -44,7 +44,7 @@ Create the bean of main object and a setter with dependency object, in spring co
       spring will call setFortuneService()and pass the dependent bean object during creation of the main object.
 ```
 
-### Scope of a spring bean
+## Scope of a spring bean
 Scope of a bean defines the following information,
 	a. How many instance will be created?
 	b. How will it be shared?
@@ -56,4 +56,13 @@ Scope of a bean defines the following information,
  3. **Request** :- For each web request, 1 instance would be created.
  4. **Web-Session** :- Created for each web session, 1 instance would be created.
 
-	
+## Spring Bean Life Cycle
+Following are the different stages of life of a spring bean.
+
+Bean Creation + Bean Instantiation + Dependency Injection + Spring Internal processing + init_method(external hook) + task + destroy(external hook)
+
+**Note:** 
+
+1. Any life cycle hook method can not accept any argument or return any value.
+2. Spring doesn't call the destroy-method on prototype scoped object. Hence, the prototype scoped object class needs to implement Disposable interface and the destroy() method or needs to implement a custom bean processor.
+			
