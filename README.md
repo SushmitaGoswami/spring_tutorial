@@ -32,15 +32,23 @@ Client delegate the call to another factory to provide the dependency while IOC 
 
 ### Constructor Injection
 Create the bean of main object and a constructor with dependency object, in spring configuratiion file, 
+
+**Using XML Configurations**
 ```
     <constructor-arg ref="dependency_bean">
     Behind the scene spring will pass the instance of the dependency bean in the constructor of the main object.
 ```
 
+**Using Java annotation**
+```
+    <context:component-scan base-package="name of the package"/> 
+    @Component Annotation needs to be used on the class of each bean since Spring will automatically scan and create the instance of the object with specified bean_id or default bean_id(lowercase of classname only 1st char)
+```
+
 ### Field/setter Injection
 Create the bean of main object and a setter with dependency object, in spring configuratiion file,
 ```
-			<property name="fortuneService" ref="dependent_bean_object"> 
+     <property name="fortuneService" ref="dependent_bean_object"> 
       spring will call setFortuneService()and pass the dependent bean object during creation of the main object.
 ```
 
